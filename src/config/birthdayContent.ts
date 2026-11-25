@@ -35,9 +35,10 @@ export interface ArchivePhoto {
   alt: string;
   caption: string;
   scriptTag: string;
-  frameStyle: 'polaroid' | 'editorial';
-  aspect: 'landscape' | 'portrait' | 'square';
+  frameStyle: 'polaroid' | 'editorial' | 'evidence';
+  aspect: 'landscape' | 'portrait' | 'square' | 'natural';
   tiltDeg: number;
+  badgeLabel?: string;
 }
 
 export interface AwardHonoreeItem {
@@ -135,65 +136,57 @@ export const birthdayContent = {
       'A collection of moments, questionable decisions, and memories that deserve their own little corner.',
     featuredUdaipur: {
       id: 'udaipur-diaries',
-      src: '/photos/udaipur-featured.svg',
-      alt: 'Udaipur Diaries — featured trip memory placeholder',
+      src: '/assets/aistudio/image_db3048b9.png',
+      alt: 'Udaipur Diaries — group selfie inside the car',
       heading: 'UDAIPUR DIARIES',
       caption: 'One trip, countless little moments. Definitely not our last adventure.',
       scriptNote: 'More trips. More chaos. More memories.',
       scriptTag: 'Featured Chapter · Udaipur',
       frameStyle: 'editorial' as const,
-      aspect: 'landscape' as const,
+      aspect: 'natural' as const,
       tiltDeg: -0.8,
     },
     photos: [
       {
         id: 'mem-01',
-        src: '/photos/memory-01.svg',
-        alt: 'Memory 01 — Evidence that we actually go outside',
+        src: '/assets/aistudio/image_f3250a1d.png',
+        alt: 'Group standing together outdoors with pink decorations',
         caption: 'Evidence that we actually go outside.',
         scriptTag: 'Exhibit A · Daylight',
         frameStyle: 'polaroid',
-        aspect: 'landscape',
+        aspect: 'natural',
         tiltDeg: -2.2,
       },
       {
         id: 'mem-02',
-        src: '/photos/memory-02.svg',
-        alt: 'Memory 02 — Jingur in his natural habitat',
+        src: '/assets/aistudio/WhatsApp_Image_2026-11-25_at_11.56.56_PM_2da99254.jpeg',
+        alt: 'Manthan mirror selfie in sage green shirt',
         caption: 'Jingur in his natural habitat.',
         scriptTag: 'Exhibit B · Unfiltered',
         frameStyle: 'editorial',
-        aspect: 'portrait',
+        aspect: 'natural',
         tiltDeg: 1.5,
+        badgeLabel: 'FIELD SPECIMEN · MIRROR CHECK',
       },
       {
         id: 'mem-03',
-        src: '/photos/memory-03.svg',
-        alt: 'Memory 03 — Some questionable decisions',
+        src: '/assets/aistudio/image_7dc8c71e.png',
+        alt: 'Archived chat conversation planning the December trip',
         caption: 'Some questionable decisions.',
-        scriptTag: 'Exhibit C · Worth it',
-        frameStyle: 'polaroid',
-        aspect: 'landscape',
-        tiltDeg: 2.3,
-      },
-      {
-        id: 'mem-04',
-        src: '/photos/memory-04.svg',
-        alt: 'Memory 04 — A day worth remembering',
-        caption: 'A day worth remembering.',
-        scriptTag: 'Exhibit D · Core memory',
-        frameStyle: 'editorial',
-        aspect: 'square',
-        tiltDeg: -1.4,
+        scriptTag: 'Exhibit C · Receipts kept',
+        frameStyle: 'evidence',
+        aspect: 'natural',
+        tiltDeg: -1.6,
+        badgeLabel: 'ARCHIVED EVIDENCE · CHAT LOG',
       },
       {
         id: 'mem-05',
-        src: '/photos/memory-05.svg',
-        alt: 'Memory 05 — More memories loading',
+        src: '/assets/aistudio/image_2216fbc9.png',
+        alt: 'Us together by the pool at night',
         caption: 'More memories loading...',
-        scriptTag: 'Exhibit E · Next chapter',
+        scriptTag: 'Exhibit D · Next chapter',
         frameStyle: 'polaroid',
-        aspect: 'square',
+        aspect: 'natural',
         tiltDeg: 1.8,
       },
     ] as ArchivePhoto[],

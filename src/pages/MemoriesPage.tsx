@@ -7,6 +7,8 @@ import { ArchivePhoto, birthdayContent } from '../config/birthdayContent';
 
 function getAspectClass(aspect: ArchivePhoto['aspect']) {
   switch (aspect) {
+    case 'natural':
+      return '';
     case 'portrait':
       return 'aspect-[3/4]';
     case 'square':
@@ -82,9 +84,9 @@ export function MemoriesPage() {
               aria-label={`Open ${featuredUdaipur.heading} photograph`}
               className="group relative block w-full overflow-hidden bg-[#456B80] p-2 text-left transition-transform duration-200 hover:-translate-y-1 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#67445F]"
             >
-              <div className="relative aspect-[16/11] w-full overflow-hidden bg-[#456B80]">
+              <div className="relative w-full overflow-hidden bg-[#456B80]">
                 {failedImages[featuredUdaipur.id] ? (
-                  <div className="flex h-full w-full flex-col items-center justify-center gap-2 p-6 text-center text-[#F6F0E5]">
+                  <div className="flex aspect-[4/3] w-full flex-col items-center justify-center gap-2 p-6 text-center text-[#F6F0E5]">
                     <ImageIcon className="h-9 w-9 text-[#D8C3A5]" />
                     <span className="font-display text-xl">{featuredUdaipur.heading}</span>
                     <span className="text-xs text-[#F6F0E5]/70">{featuredUdaipur.src}</span>
@@ -97,7 +99,7 @@ export function MemoriesPage() {
                     onError={() =>
                       setFailedImages((prev) => ({ ...prev, [featuredUdaipur.id]: true }))
                     }
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                    className="block h-auto w-full transition-transform duration-300 group-hover:scale-[1.02]"
                   />
                 )}
 
@@ -130,19 +132,18 @@ export function MemoriesPage() {
         </motion.div>
 
         {/* ASYMMETRIC SCRAPBOOK PHOTO GRID */}
-        <div className="mt-12 grid grid-cols-1 items-start gap-8 md:grid-cols-12">
+        <div className="mt-12 grid grid-cols-1 items-start gap-8 md:grid-cols-12 lg:gap-10">
           {photos.map((photo, index) => {
             const isPolaroid = photo.frameStyle === 'polaroid';
+            const isEvidence = photo.frameStyle === 'evidence';
             const colSpan =
               index === 0
-                ? 'md:col-span-6 lg:col-span-5'
+                ? 'md:col-span-6 lg:col-span-5 lg:col-start-1'
                 : index === 1
-                  ? 'md:col-span-6 lg:col-span-4'
+                  ? 'md:col-span-6 lg:col-span-5 lg:col-start-7 lg:mt-6'
                   : index === 2
-                    ? 'md:col-span-6 lg:col-span-3'
-                    : index === 3
-                      ? 'md:col-span-6 lg:col-span-6'
-                      : 'md:col-span-12 lg:col-span-6';
+                    ? 'md:col-span-6 lg:col-span-5 lg:col-start-2'
+                    : 'md:col-span-6 lg:col-span-5 lg:col-start-8 lg:-mt-4';
 
             const lightboxIdx = index + 1;
             const hasFailed = failedImages[photo.id];
@@ -171,7 +172,9 @@ export function MemoriesPage() {
                   className={`group relative block w-full text-left transition-all duration-200 hover:rotate-0 hover:-translate-y-1.5 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#67445F] ${
                     isPolaroid
                       ? 'rounded-xs border border-[#67445F]/12 bg-[#FAF6EE] p-3.5 pb-6 scrapbook-frame hover:scrapbook-frame-hover'
-                      : 'border border-[#456B80]/25 bg-[#456B80] p-3 text-[#F6F0E5] scrapbook-frame hover:scrapbook-frame-hover'
+                      : isEvidence
+                        ? 'rounded-sm border-2 border-dashed border-[#67445F]/35 bg-[#EFE4D2] p-4 pb-6 scrapbook-frame hover:scrapbook-frame-hover'
+                        : 'border border-[#456B80]/25 bg-[#456B80] p-3.5 pb-6 text-[#F6F0E5] scrapbook-frame hover:scrapbook-frame-hover'
                   }`}
                 >
                   {isPolaroid && (
@@ -181,10 +184,29 @@ export function MemoriesPage() {
                     />
                   )}
 
+                  {isEvidence && (
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute -top-3 right-8 h-5 w-16 rotate-3 bg-[#D8C3A5]"
+                    />
+                  )}
+
+                  {photo.badgeLabel && (
+                    <div className="mb-2.5 flex items-center justify-between gap-2 px-0.5">
+                      <span
+                        className={`text-[10px] font-bold tracking-[0.2em] uppercase ${
+                          isEvidence ? 'text-[#67445F]' : 'text-[#D8C3A5]'
+                        }`}
+                      >
+                        {photo.badgeLabel}
+                      </span>
+                    </div>
+                  )}
+
                   <div
                     className={`relative w-full overflow-hidden ${getAspectClass(
                       photo.aspect
-                    )} bg-[#EFE4D2]`}
+                    )} ${isEvidence ? 'border border-[#67445F]/20 bg-[#232D2F]' : 'bg-[#EFE4D2]'}`}
                   >
                     {hasFailed ? (
                       <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-[#EFE4D2] p-6 text-center text-[#67445F]">
@@ -201,7 +223,11 @@ export function MemoriesPage() {
                         onError={() =>
                           setFailedImages((prev) => ({ ...prev, [photo.id]: true }))
                         }
-                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                        className={
+                          photo.aspect === 'natural'
+                            ? 'block h-auto w-full transition-transform duration-300 group-hover:scale-[1.02]'
+                            : 'h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]'
+                        }
                       />
                     )}
 
@@ -213,14 +239,14 @@ export function MemoriesPage() {
                   <div className="mt-4 px-1">
                     <span
                       className={`font-script text-2xl ${
-                        isPolaroid ? 'text-[#456B80]' : 'text-[#D8C3A5]'
+                        isPolaroid || isEvidence ? 'text-[#456B80]' : 'text-[#D8C3A5]'
                       }`}
                     >
                       {photo.scriptTag}
                     </span>
                     <p
                       className={`mt-1 font-display text-lg leading-snug sm:text-xl ${
-                        isPolaroid ? 'text-[#67445F]' : 'text-[#F6F0E5]'
+                        isPolaroid || isEvidence ? 'text-[#67445F]' : 'text-[#F6F0E5]'
                       }`}
                     >
                       {photo.caption}
