@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 720" fill="none">
+  <rect width="1000" height="720" fill="#456B80"/>
+  <rect x="28" y="28" width="944" height="664" stroke="#F6F0E5" stroke-opacity="0.32" stroke-width="2"/>
+  <rect x="52" y="52" width="896" height="616" stroke="#D8C3A5" stroke-opacity="0.45" stroke-width="1.5" stroke-dasharray="7 7"/>
+  <!-- Stylized Udaipur lake palace arches silhouette -->
+  <path d="M180 460V320C180 285 215 260 250 260C285 260 320 285 320 320V460" stroke="#F6F0E5" stroke-width="2.5"/>
+  <path d="M350 460V285C350 235 415 200 500 200C585 200 650 235 650 285V460" stroke="#D8C3A5" stroke-width="3"/>
+  <path d="M680 460V320C680 285 715 260 750 260C785 260 820 285 820 320V460" stroke="#F6F0E5" stroke-width="2.5"/>
+  <line x1="140" y1="460" x2="860" y2="460" stroke="#A8B5A0" stroke-width="2.5"/>
+  <path d="M220 492C310 478 390 506 500 492C610 478 690 506 780 492" stroke="#D8C3A5" stroke-opacity="0.65" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="760" cy="155" r="34" stroke="#D8C3A5" stroke-width="2.5"/>
+  <text x="500" y="565" text-anchor="middle" fill="#F6F0E5" font-family="Georgia, serif" font-size="24" letter-spacing="6">UDAIPUR DIARIES · FEATURE SLOT</text>
+  <text x="500" y="602" text-anchor="middle" fill="#D8C3A5" font-family="sans-serif" font-size="14" letter-spacing="2">REPLACE WITH /public/photos/udaipur-featured.jpg</text>
+</svg>

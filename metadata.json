@@ -1,0 +1,6 @@
+{
+  "name": "The Jingur Experience",
+  "description": "A personalized editorial & scrapbook birthday experience for Manthan aka Jingur.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

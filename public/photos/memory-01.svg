@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" fill="#A8B5A0"/>
+  <rect x="26" y="26" width="748" height="548" fill="#F6F0E5" fill-opacity="0.16" stroke="#67445F" stroke-opacity="0.35" stroke-width="2"/>
+  <circle cx="400" cy="255" r="78" stroke="#67445F" stroke-width="2.5"/>
+  <path d="M362 255L388 281L440 229" stroke="#456B80" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="400" y="395" text-anchor="middle" fill="#3D2738" font-family="Georgia, serif" font-size="22" letter-spacing="5">MEMORY FRAME 01</text>
+  <text x="400" y="430" text-anchor="middle" fill="#67445F" font-family="sans-serif" font-size="13" letter-spacing="2">REPLACE WITH /public/photos/memory-01.jpg</text>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700" fill="none">
+  <rect width="700" height="700" fill="#EFE4D2"/>
+  <rect x="32" y="32" width="636" height="636" stroke="#A8B5A0" stroke-width="2.5"/>
+  <polygon points="350,175 388,255 475,268 412,330 427,418 350,376 273,418 288,330 225,268 312,255" stroke="#67445F" stroke-width="2.5" stroke-linejoin="round"/>
+  <text x="350" y="495" text-anchor="middle" fill="#3D2738" font-family="Georgia, serif" font-size="22" letter-spacing="5">MEMORY FRAME 05</text>
+  <text x="350" y="532" text-anchor="middle" fill="#456B80" font-family="sans-serif" font-size="13" letter-spacing="2">REPLACE WITH YOUR PHOTO</text>
+</svg>
